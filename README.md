@@ -10,7 +10,7 @@ kemudian buat virtual_sink audio pada pulse audio :
 - pada akhir file tambahkan ```load-module module-null-sink sink_name=Virtual_Sink sink_properties=device.description=Virtual_Sink```
 
 untuk encode text menjadi audio termodulasi jalankan :
-- ```sudo chmod + RadioGR.sh```
+- ```sudo chmod +X RadioGR.sh```
 - ```./RadioGR.sh```
 
 untuk mendecode buka terminal baru kemudian jalankan :
