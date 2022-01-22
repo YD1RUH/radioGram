@@ -1,7 +1,9 @@
 clear
-
+sudo rigctl --version
+echo ""
 read -p "masukkan modulasi     : " modulasi
 read -p "id hamlib rig type    : " rig
+read -p "masukkan frekuensi    : " frek
 read -p "pesan dari            : " dari
 read -p "untuk                 : " ke
 echo ""
@@ -47,6 +49,7 @@ echo "" >> radiogram
 echo "..........................................." >> radiogram
 echo "" >> radiogram
 
+sudo rigctl -m $rig -r /dev/ttyUSB0 F $frek
 sudo rigctl -m $rig -r /dev/ttyUSB0 T 1
 cat radiogram | minimodem --tx $modulasi -a
 sudo rigctl -m $rig -r /dev/ttyUSB0 T 0
