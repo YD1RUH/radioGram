@@ -47,9 +47,9 @@ echo "" >> radiogram
 echo "..........................................." >> radiogram
 echo "" >> radiogram
 
-sudo rigctl -m $id -r /dev/ttyUSB0 T 1
+sudo rigctl -m $rig -r /dev/ttyUSB0 T 1
 cat radiogram | minimodem --tx $modulasi -a
-sudo rigctl -m $id -r /dev/ttyUSB0 T 0
+sudo rigctl -m $rig -r /dev/ttyUSB0 T 0
 
 rm radiogram
 done
