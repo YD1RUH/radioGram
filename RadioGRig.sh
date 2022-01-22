@@ -49,7 +49,7 @@ echo "" >> radiogram
 echo "..........................................." >> radiogram
 echo "" >> radiogram
 
-sudo rigctl -m $rig -r /dev/ttyUSB0 F $frek
+sudo rigctl -m $rig -r /dev/ttyUSB0 F $frek M PKTFM 1
 sudo rigctl -m $rig -r /dev/ttyUSB0 T 1
 cat radiogram | minimodem --tx $modulasi -a
 sudo rigctl -m $rig -r /dev/ttyUSB0 T 0
