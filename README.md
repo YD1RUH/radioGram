@@ -21,7 +21,7 @@ the use of a minimodem for sending radiograms on radio frequencies
 4. for decode the modulated audion open terminal and run this command : :
    + ```minimodem --rx type_mode_that_you're_using -q```
 
-## with transciever (example icom IC-7100)
+## with transciever (tested icom IC-7100)
 1. install minimodem pada komputer/laptop : 
    + ```sudo apt-get install minimodem```
 
