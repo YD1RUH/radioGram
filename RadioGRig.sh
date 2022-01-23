@@ -2,9 +2,9 @@ clear
 echo ""
 sudo rigctl --version
 echo ""
-read -p "baudrate, ex:200   : " modulasi
-read -p "id hamlib rig type : " rig
-read -p "frequency use      : " frek
+read -p "baudrate, ex:200            : " modulasi
+read -p "id hamlib rig type          : " rig
+read -p "frequency use, ex:144100000 : " frek
 echo ""
 read -p "message from       : " dari
 read -p "to                 : " ke
