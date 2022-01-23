@@ -1,17 +1,35 @@
 # radioGram
-pemanfaatan minimodem untuk pengiriman radiogram pada frekuensi radio
+the use of a minimodem for sending radiograms on radio frequencies
 
-install minimodem pada komputer/laptop : 
-- ```sudo apt-get install minimodem```
+## Dependencies
+1. minimodem
+2. hamlib
 
-kemudian buat virtual_sink audio pada pulse audio : 
-- buka terminal kemudian ketik ```pacmd load-module module-null-sink sink_name=Virtual_Sink sink_properties=device.description=Virtual_Sink```
-- ```sudo nano /etc/pulse/default.pa```
-- pada akhir file tambahkan ```load-module module-null-sink sink_name=Virtual_Sink sink_properties=device.description=Virtual_Sink```
+## without transciever
+1. install minimodem on your computer/laptop : 
+   + ```sudo apt-get install minimodem```
 
-untuk encode text menjadi audio termodulasi jalankan :
-- ```sudo chmod +X RadioGR.sh```
-- ```./RadioGR.sh```
+2. after taht create a virtual_sink audio using pulse audio : 
+   + open terminal than type ```pacmd load-module module-null-sink sink_name=Virtual_Sink sink_properties=device.description=Virtual_Sink```
+   + ```sudo nano /etc/pulse/default.pa```
+   + at the end of file add this line ```load-module module-null-sink sink_name=Virtual_Sink sink_properties=device.description=Virtual_Sink```
 
-untuk mendecode buka terminal baru kemudian jalankan :
-- ```minimodem --rx mode_yang_digunakan -q```
+3. for encode the text into modulated audio run this command :
+   + ```sudo chmod +X RadioGR.sh```
+   + ```./RadioGR.sh```
+
+4. for decode the modulated audion open terminal and run this command : :
+   + ```minimodem --rx type_mode_that_you're_using -q```
+
+## with transciever (example icom IC-7100)
+1. install minimodem pada komputer/laptop : 
+   + ```sudo apt-get install minimodem```
+
+2. open pavucontrol and select usb sound interface detected as a default device :
+
+3. run program to encode text into modulated audio and trasmited via RF :
+   + ```sudo chmod +X RadioGRig.sh```
+   + ```./RadioGRig.sh```
+
+4. for decode the modulated audion open terminal and run this command :
+   + ```minimodem --rx type_mode_that_you're_using -q```
