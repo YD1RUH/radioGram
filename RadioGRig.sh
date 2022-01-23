@@ -42,7 +42,7 @@ echo "..........................................." >> radiogram
 echo "">> radiogram
 echo "From           : $dari" >> radiogram
 echo "To             : $ke" >> radiogram
-echo "classification : $kategori_fix" >> radiogram
+echo "Classification : $kategori_fix" >> radiogram
 echo "Time           : $waktu" >> radiogram
 echo "" >> radiogram
 echo "message        : " >> radiogram
