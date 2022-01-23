@@ -39,7 +39,7 @@ echo "To             : $ke" >> radiogram
 echo "Classification : $kategori_fix" >> radiogram
 echo "Time           : $waktu" >> radiogram
 echo "" >> radiogram
-echo "Isi Berita   : " >> radiogram
+echo "message        : " >> radiogram
 echo "$pesan" >> radiogram
 echo "" >> radiogram
 echo "..........................................." >> radiogram
