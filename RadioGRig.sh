@@ -2,14 +2,26 @@ clear
 echo ""
 sudo rigctl --version
 echo ""
-read -p "baudrate, ex:200            : " modulasi
-read -p "id hamlib rig type          : " rig
-read -p "frequency use, ex:144100000 : " frek
+read -p "baudrate, ex:200                  : " modulasi
+read -p "id hamlib rig type                : " rig
+#read -p "frequency use, ex:144100000 : " frek
+echo "default frequency 146400000........ "
+
+read -p "[enter] default, [N] input manual : " param
+if [ "$param" = "N" ]; then
+    read -p "frequency use, ex:144100000       : " frek
+elif [ "$param" = "n" ]; then
+    read -p "frequency use, ex:144100000       : " frek
+else
+    frek="146400000"
+fi
+
 echo ""
 read -p "message from       : " dari
 read -p "to                 : " ke
 echo ""
 echo "message category [1] usual, [2] emergency"
+
 read -p "choose category use : " kategori
 if [ "$kategori" = "1" ]; then
     kategori_fix="usual"
@@ -27,6 +39,7 @@ else
     sleep 2
     bash RadioGR.sh
 fi
+
 nomor=0
 while true
 do
