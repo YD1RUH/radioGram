@@ -2,12 +2,12 @@ clear
 echo ""
 sudo rigctl --version
 echo ""
-read -p "modulation type, ex:200 : " modulasi
-read -p "id hamlib rig type      : " rig
-read -p "frequency use           : " frek
+read -p "baudrate, ex:200   : " modulasi
+read -p "id hamlib rig type : " rig
+read -p "frequency use      : " frek
 echo ""
-read -p "message from            : " dari
-read -p "to                      : " ke
+read -p "message from       : " dari
+read -p "to                 : " ke
 echo ""
 echo "message category [1] usual, [2] emergency"
 read -p "choose category use : " kategori
