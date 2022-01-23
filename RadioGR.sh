@@ -1,8 +1,8 @@
 clear
 echo ""
-read -p "modulation type, ex:200 : " modulasi
-read -p "message from            : " dari
-read -p "to                      : " ke
+read -p "baudrate, ex:200 : " modulasi
+read -p "message from     : " dari
+read -p "to               : " ke
 echo ""
 echo "message category [1] usual, [2] emergency"
 read -p "choose category use : " kategori
