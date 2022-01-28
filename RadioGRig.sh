@@ -52,7 +52,7 @@ else
     sleep 1
     echo "restart program.."
     sleep 2
-    bash RadioGR.sh
+    bash RadioGRig.sh
 fi
 
 nomor=0
