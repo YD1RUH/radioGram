@@ -2,9 +2,23 @@ clear
 echo ""
 sudo rigctl --version
 echo ""
+echo "list all USB COM detected :"
+ls -la /dev/ttyUSB* | awk -F ' ' '{print $10}'
+echo ""
+echo "input COM USB that conected         "
+read -p "use default COM /dev/ttyUSB0, [N] NO ? " coms
+if [ "$coms" = "N" ]; then
+    read -p "COM use, ex:/dev/ttyUSB0    : " com
+elif [ "$coms" = "n" ]; then
+    read -p "COM use, ex:/dev/ttyUSB0    : " com
+else
+    com="/dev/ttyUSB0"
+fi
+echo ""
 read -p "baudrate, ex:200                  : " modulasi
 read -p "id hamlib rig type                : " rig
-#read -p "frequency use, ex:144100000 : " frek
+
+echo ""
 echo "default frequency 146400000........ "
 
 read -p "[enter] default, [N] input manual : " param
@@ -15,6 +29,7 @@ elif [ "$param" = "n" ]; then
 else
     frek="146400000"
 fi
+rigctl -m $rig -r $com F $frek M FM 1
 
 echo ""
 read -p "message from       : " dari
@@ -44,6 +59,7 @@ nomor=0
 while true
 do
 clear
+echo ""
 echo "callsign from "$dari" to "$ke" category "$kategori_fix", with modulation : "$modulasi
 echo ""
 echo "input your message: ";read pesan
@@ -62,12 +78,12 @@ echo "message        : " >> radiogram
 echo "$pesan" >> radiogram
 echo "" >> radiogram
 echo "..........................................." >> radiogram
-echo "" >> radiogram
+echo "..........................................." >> radiogram
+echo "..........................................." >> radiogram
 
-sudo rigctl -m $rig -r /dev/ttyUSB0 F $frek M PKTFM 1
-sudo rigctl -m $rig -r /dev/ttyUSB0 T 1
+rigctl -m $rig -r $com T 1
 cat radiogram | minimodem --tx $modulasi -a
-sudo rigctl -m $rig -r /dev/ttyUSB0 T 0
+rigctl -m $rig -r $com T 0
 
 rm radiogram
 done
