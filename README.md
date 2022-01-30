@@ -39,5 +39,5 @@ the use of minimodem for sending radiograms on radio frequencies
    + ```sudo chmod +X RadioGRig.sh```
    + ```./RadioGRig.sh```
 
-4. for decode the modulated audion open terminal and run this command :
+4. for decode the modulated audio, open terminal and run this command :
    + ```minimodem --rx type_mode_that_you're_using -q```
