@@ -46,7 +46,7 @@ if [[ $count -ne 0 ]]; then
 	echo "" >> radioWeater
         echo "" >> radioWeater
         echo "" >> radioWeater
-	rigctl -m $rig -r $com T 1
+	rigctl -m $rig -r $com T 3
 	sleep 1
 	cat radioWeater | minimodem --tx $modulasi -a
 	rigctl -m $rig -r $com T 0
@@ -63,7 +63,7 @@ else
 	echo "" >> radioWeater_fix
         echo "" >> radioWeater_fix
         echo "" >> radioWeater_fix
-        rigctl -m $rig -r $com T 1
+        rigctl -m $rig -r $com T 3
         sleep 1
 	cat radioWeater_fix | minimodem --tx $modulasi -a
         rigctl -m $rig -r $com T 0
