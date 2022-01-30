@@ -30,7 +30,7 @@ the use of minimodem for sending radiograms on radio frequencies
    + ```minimodem --rx type_mode_that_you're_using -q```
 
 ## with transciever (tested icom IC-7100)
-1. install minimodem pada komputer/laptop : 
+1. install minimodem on your computer/laptop : 
    + ```sudo apt-get install minimodem```
 
 2. open pavucontrol and select usb sound interface detected as a default device :
