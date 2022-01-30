@@ -83,7 +83,7 @@ echo "..........................................." >> radiogram
 echo "..........................................." >> radiogram
 echo "..........................................." >> radiogram
 
-rigctl -m $rig -r $com T 1
+rigctl -m $rig -r $com T 3
 sleep 1
 cat radiogram | minimodem --tx $modulasi -a
 rigctl -m $rig -r $com T 0
