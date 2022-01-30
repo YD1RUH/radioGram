@@ -10,9 +10,9 @@ the use of minimodem for sending radiograms on radio frequencies
 6. YD9CKH
 
 ## Dependencies
-1. minimodem (sudo apt-get install minimodem)
-2. hamlib (sudo apt-get install hamradio-rigcontrol, or install manually https://github.com/Hamlib/Hamlib)
-3. jq (sudo apt-get install jq)
+1. minimodem (```sudo apt-get install minimodem```)
+2. hamlib (```sudo apt-get install hamradio-rigcontrol```, or install manually https://github.com/Hamlib/Hamlib)
+3. jq (```sudo apt-get install jq```)
 
 ## without transciever or transciever with vox mode
 1. install minimodem on your computer/laptop : 
