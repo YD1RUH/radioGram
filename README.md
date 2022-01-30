@@ -4,9 +4,10 @@ the use of minimodem for sending radiograms on radio frequencies
 ## developed & tested by
 1. YD1RUH
 2. YD0NXX
-3. YD0AVI
-4. YG3FEO
-5. YD9CKH
+3. YD0AVJ
+4. YD0AVI
+5. YG3FEO
+6. YD9CKH
 
 ## Dependencies
 1. minimodem
