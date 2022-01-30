@@ -1,5 +1,12 @@
 # radioGram
-the use of a minimodem for sending radiograms on radio frequencies
+the use of minimodem for sending radiograms on radio frequencies
+
+## developed & tested by
+1. YD1RUH
+2. YD0NXX
+3. YD0AVI
+4. YD3FEO
+5. YD9CKH
 
 ## Dependencies
 1. minimodem
