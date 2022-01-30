@@ -41,3 +41,7 @@ the use of minimodem for sending radiograms on radio frequencies
 
 4. for decode the modulated audio, open terminal and run this command :
    + ```minimodem --rx type_mode_that_you're_using -q```
+
+## training deocde minimodem
+I've just add 3 example sound .wav. there is with baudrate 300, 1000, and 1200. If you're trying to decode this .wav just try this command on your terminal:
+```minimodem --read baud_rate_that_you_want -f example-baud_rate_tested.wav```
