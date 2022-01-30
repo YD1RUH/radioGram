@@ -13,7 +13,7 @@ the use of minimodem for sending radiograms on radio frequencies
 1. minimodem
 2. hamlib
 
-## without transciever
+## without transciever or transciever with vox mode
 1. install minimodem on your computer/laptop : 
    + ```sudo apt-get install minimodem```
 
