@@ -155,5 +155,4 @@ else
     rigctl -m $rig -r $com T 0
     rm radiogram
 fi
-
 done
