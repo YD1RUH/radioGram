@@ -74,9 +74,9 @@ if [ "$pesan" = "weather" ]; then
     echo "..........................................." >> radioWeater
     curl -s wttr.in/$loc?1 >> radioWeater
     sed '23,$ d' radioWeater > radioWeater_fix
-    echo "..........................................." >> radioWeater
-    echo "..........................................." >> radioWeater
-    echo "..........................................." >> radioWeater
+    echo "..........................................." >> radioWeater_fix
+    echo "..........................................." >> radioWeater_fix
+    echo "..........................................." >> radioWeater_fix
     rigctl -m $rig -r $com T 1
     sleep 1
     cat radioWeater_fix | minimodem --tx $modulasi -a
