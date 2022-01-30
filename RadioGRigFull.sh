@@ -2,41 +2,61 @@ clear
 echo ""
 rigctl --version
 echo ""
-echo "list all USB COM detected :"
-ls -la /dev/ttyUSB* | awk -F ' ' '{print $10}'
-echo ""
-echo "input COM USB that conected         "
-read -p "use default COM /dev/ttyUSB0, [N] NO ? " coms
-if [ "$coms" = "N" ]; then
-    read -p "COM use, ex:/dev/ttyUSB0    : " com
-elif [ "$coms" = "n" ]; then
-    read -p "COM use, ex:/dev/ttyUSB0    : " com
-else
-    com="/dev/ttyUSB0"
-fi
-echo ""
-read -p "baudrate, ex:200                  : " modulasi
-read -p "id hamlib rig type                : " rig
 
+echo "read config.json:"
+cat config.json
+dari=$(cat config.json | jq -r '.callsign')
+com=$(cat config.json | jq -r '.cat_port')
+rig=$(cat config.json | jq -r '.radio_id')
+frek=$(cat config.json | jq -r '.tx_freq')
 echo ""
-echo "default frequency 146400000........ "
+echo "===================================="
+echo "callsign  : $dari"
+echo "port      : $com"
+echo "rig model : $rig"
+echo "TX freq.  : $frek"
+echo "===================================="
+echo ""
+read -p "is it ok [enter] ? if you want manual input type [N] or [n] ..." param
 
-read -p "[enter] default, [N] input manual : " param
 if [ "$param" = "N" ]; then
-    read -p "frequency use, ex:144100000       : " frek
+    echo "list all USB COM detected :"
+    ls -la /dev/ttyUSB* | awk -F ' ' '{print $10}'
+    echo ""
+    echo "input COM USB that conected         "
+    read -p "use default COM /dev/ttyUSB0, [N] NO ? " coms
+    if [ "$coms" = "N" ]; then
+        read -p "COM use, ex:/dev/ttyUSB0    : " com
+    elif [ "$coms" = "n" ]; then
+        read -p "COM use, ex:/dev/ttyUSB0    : " com
+    else
+        com="/dev/ttyUSB0"
+    fi
+    echo ""
+    read -p "message from        : " dari
 elif [ "$param" = "n" ]; then
-    read -p "frequency use, ex:144100000       : " frek
-else
-    frek="146400000"
+    echo "list all USB COM detected :"
+    ls -la /dev/ttyUSB* | awk -F ' ' '{print $10}'
+    echo ""
+    echo "input COM USB that conected         "
+    read -p "use default COM /dev/ttyUSB0, [N] NO ? " coms
+    if [ "$coms" = "N" ]; then
+        read -p "COM use, ex:/dev/ttyUSB0    : " com
+    elif [ "$coms" = "n" ]; then
+        read -p "COM use, ex:/dev/ttyUSB0    : " com
+    else
+        com="/dev/ttyUSB0"
+    fi
+    echo ""
+    read -p "message from        : " dari
 fi
+
 rigctl -m $rig -r $com F $frek M FM 1
 
-echo ""
-read -p "message from       : " dari
-read -p "to                 : " ke
+read -p "send messages to    : " ke
+read -p "baudrate, ex:200    : " modulasi
 echo ""
 echo "message category [1] usual, [2] emergency"
-
 read -p "choose category use : " kategori
 if [ "$kategori" = "1" ]; then
     kategori_fix="usual"
@@ -70,6 +90,7 @@ if [ "$pesan" = "weather" ]; then
     clear
     read -p "masukkan lokasi : " loc
     echo "..........................................." > radioWeater
+    echo "..........................................." >> radioWeater
     echo "..........................................." >> radioWeater
     echo "..........................................." >> radioWeater
     curl -s wttr.in/$loc?1 >> radioWeater
