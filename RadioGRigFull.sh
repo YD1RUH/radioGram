@@ -72,7 +72,7 @@ else
     sleep 1
     echo "restart program.."
     sleep 2
-    bash RadioGR.sh
+    bash RadioGRigFull.sh
 fi
 
 nomor=0
@@ -81,12 +81,13 @@ do
 clear
 echo ""
 echo "callsign from "$dari" to "$ke" category "$kategori_fix", with modulation : "$modulasi
-echo "1. for send weater information, type 'weather'"
-echo "2. for send .txt file, type 'file' then drag n drop your .txt to terminal"
+echo "1. for send weater information, type '1'"
+echo "2. get weather info all provincies at Indonesia, type '2' "
+echo "3. for send .txt file, type '3' then drag n drop your .txt to terminal"
 echo ""
 echo "input your message: ";read pesan
 
-if [ "$pesan" = "weather" ]; then
+if [ "$pesan" = "1" ]; then
     clear
     read -p "masukkan lokasi : " loc
     echo "..........................................." > radioWeater
@@ -103,7 +104,23 @@ if [ "$pesan" = "weather" ]; then
     cat radioWeater_fix | minimodem --tx $modulasi -a
     rigctl -m $rig -r $com T 0
     rm radioWeater radioWeater_fix
-elif [ "$pesan" = "file" ]; then
+elif [ "$pesan" = "2" ]; then
+    clear
+    echo "getting information..."
+    echo "..........................................." > radioWeater
+    echo "..........................................." >> radioWeater
+    echo "..........................................." >> radioWeater
+    echo "..........................................." >> radioWeater
+    curl -s 'wttr.in/{Aceh,Medan,Padang,Pekanbaru,Tanjungpinang,Jambi,Palembang,Pangkal Pinang,Bengkulu,Bandar Lampung,Jakarta,Serang,Bandung,Semarang,Yogyakarta,Surabaya,Denpasar,Mataram,Kupang,Pontianak,Palangkaraya,Banjarmasin,Samarinda,Tanjung Selor,Manado,Gorontalo,Palu,Mamuju,Makassar,Kendari,Ambon,Sofifi,Manokwari,Jayapura}?format=3' >> radioWeater
+    echo "..........................................." >> radioWeater
+    echo "..........................................." >> radioWeater
+    echo "..........................................." >> radioWeater
+    rigctl -m $rig -r $com T 3
+    sleep 1
+    cat radioWeater | minimodem --tx $modulasi -a
+    rigctl -m $rig -r $com T 0
+    rm radioWeater
+elif [ "$pesan" = "3" ]; then
     clear
     echo "drag and drop your .txt file : "; read file
     echo $file > file
@@ -155,4 +172,5 @@ else
     rigctl -m $rig -r $com T 0
     rm radiogram
 fi
+
 done
