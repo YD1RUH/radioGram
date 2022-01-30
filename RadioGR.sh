@@ -48,3 +48,4 @@ echo "" >> radiogram
 cat radiogram | minimodem --tx $modulasi -a
 rm radiogram
 done
+
