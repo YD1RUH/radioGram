@@ -1,0 +1,6 @@
+{
+"callsign":"YD1RUH",
+"cat_port":"/dev/ttyUSB0",
+"radio_id":"3070",
+"tx_freq":"146400000"
+}
