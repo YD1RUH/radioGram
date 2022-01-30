@@ -45,3 +45,12 @@ the use of minimodem for sending radiograms on radio frequencies
 ## training decode minimodem
 I've just add 3 example sound .wav. there is with baudrate 300, 1000, and 1200. If you're trying to decode this .wav just try this command on your terminal:
 ```minimodem --read baud_rate_that_you_want -f example-baud_rate_tested.wav```
+
+## build and combined with
+1. linux
+2. bash (shell script)
+3. hamlib
+4. minimodem
+5. json
+6. wttr.in
+7. pulse audio
