@@ -52,7 +52,7 @@ elif [ "$param" = "n" ]; then
     read -p "message from        : " dari
 fi
 
-rigctl -m $rig -r $com F $frek M FM 1
+rigctl -m $rig -r $com F $frek M PKTFM 1
 
 read -p "send messages to    : " ke
 read -p "baudrate, ex:200    : " modulasi
