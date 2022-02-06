@@ -13,6 +13,7 @@ the use of minimodem for sending radiograms on radio frequencies
 1. minimodem (```sudo apt-get install minimodem```)
 2. hamlib (```sudo apt-get install hamradio-rigcontrol```, or install manually https://github.com/Hamlib/Hamlib)
 3. jq (```sudo apt-get install jq```)
+4. xterm (```sudo apt-get install xterm```)
 
 ## without transciever or transciever with vox mode
 1. install minimodem on your computer/laptop : 
@@ -55,3 +56,4 @@ I've just add 3 example sound .wav. there is with baudrate 300, 1000, and 1200. 
 5. json
 6. wttr.in
 7. pulse audio
+8. xterm
