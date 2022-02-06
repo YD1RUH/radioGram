@@ -1,4 +1,5 @@
 clear
+export LC_NUMERIC="en_US.UTF-8"
 echo ""
 rigctl --version
 echo ""
@@ -72,7 +73,7 @@ else
     sleep 1
     echo "restart program.."
     sleep 2
-    bash RadioGRigFull.sh
+    bash ex.sh
 fi
 
 nomor=0
@@ -99,11 +100,16 @@ if [ "$pesan" = "1" ]; then
     echo "..........................................." >> radioWeater_fix
     echo "..........................................." >> radioWeater_fix
     echo "..........................................." >> radioWeater_fix
+    start=$(date +%s.%N)
     rigctl -m $rig -r $com T 3
     sleep 1
     cat radioWeater_fix | minimodem --tx $modulasi -a
     rigctl -m $rig -r $com T 0
+    duration=$(echo "$(date +%s.%N) - $start" | bc)
+    execution_time=`printf "%.2f seconds" $duration`
+    echo "transmit berlangsung selama : $execution_time"
     rm radioWeater radioWeater_fix
+    sleep 5
 elif [ "$pesan" = "2" ]; then
     clear
     echo "getting information..."
@@ -115,11 +121,16 @@ elif [ "$pesan" = "2" ]; then
     echo "..........................................." >> radioWeater
     echo "..........................................." >> radioWeater
     echo "..........................................." >> radioWeater
+    start=$(date +%s.%N)
     rigctl -m $rig -r $com T 3
     sleep 1
     cat radioWeater | minimodem --tx $modulasi -a
     rigctl -m $rig -r $com T 0
+    duration=$(echo "$(date +%s.%N) - $start" | bc)
+    execution_time=`printf "%.2f seconds" $duration`
+    echo "transmit berlangsung selama : $execution_time"
     rm radioWeater
+    sleep 5
 elif [ "$pesan" = "3" ]; then
     clear
     echo "drag and drop your .txt file : "; read file
@@ -143,11 +154,16 @@ elif [ "$pesan" = "3" ]; then
     echo "..........................................." >> radiogram
     echo "..........................................." >> radiogram
     echo "..........................................." >> radiogram
+    start=$(date +%s.%N)
     rigctl -m $rig -r $com T 3
     sleep 1
     cat radiogram | minimodem --tx $modulasi -a
     rigctl -m $rig -r $com T 0
+    duration=$(echo "$(date +%s.%N) - $start" | bc)
+    execution_time=`printf "%.2f seconds" $duration`
+    echo "transmit berlangsung selama : $execution_time"
     rm radiogram file
+    sleep 5
 else
     waktu=$(date)
     nomor=$(($nomor+1))
@@ -166,11 +182,16 @@ else
     echo "..........................................." >> radiogram
     echo "..........................................." >> radiogram
     echo "..........................................." >> radiogram
+    start=$(date +%s.%N)
     rigctl -m $rig -r $com T 3
     sleep 1
     cat radiogram | minimodem --tx $modulasi -a
     rigctl -m $rig -r $com T 0
+    duration=$(echo "$(date +%s.%N) - $start" | bc)
+    execution_time=`printf "%.2f seconds" $duration`
+    echo "transmit berlangsung selama : $execution_time"
     rm radiogram
+    sleep 5
 fi
 
 done
